@@ -1,7 +1,7 @@
 Docker
 _____________
 
--> Resolves Copatibility problem using containerization
+-> Resolves Compatibility problem using containerization
 -> Docker will help us to install our software on different server without worrying about compatibility issue
 -> To deploy same application on multiple servers for load balancing we need not manually install technology stack (like Angular 18v, java 17V etc) manually one by one if docker is not used
 -> Software upgrades can be done easily on multiple machines using docker
@@ -11,6 +11,23 @@ Note:
 ✔ Containers don’t have their own kernel, they use the host’s kernel
 ✔ Docker Engine manages containers but does not create them—it runs & controls them
 
+
+
+Note:
+
+Linux VM--->Install Docker Engine--->Docker Engine acts as bridge between Linux Kernel and docker Container-->Provides isolated enviroment to run Docker Image.
+
+####################
+#
+# docker container			
+####################
+#
+# dOCKER ENGINE
+####################
+#
+#  lINUX vm
+####################
+
 Docker Architecture:
 ________________________________________________________________________
 Docker File: Here we will provide Intructions to create docker image
@@ -18,10 +35,20 @@ Docker Image: Application Package with dependencies of it
 Docker Registry: Its a hub to store docker images
 Docker Container: Isolated environment to run docker image
 
+What is containerization?
 
-Note:
+containers package an application along with its dependencies (libraries, configuration files, etc.), ensuring that it runs consistently across different computing environments.
 
-Linux VM--->Install Docker Enginer--->Docker Engine acts as bridge between Linux Kernel and docker Container-->Provides isolated enviroment to run Docker Image.
+#########################          #########################                  ####################                 @@@@@@@@@@@@@@@@@
+Dockerfile														%%%%%%%%
+															Container1
+(Contains instructions     ------>    Docker Image               ------------>  Docker hub/registry   ---------->       %%%%%%%%%
+ to download dependencies   (build)	    (Application Code +   (Store)      (Collection of images)			Container2	
+				      Dependencies to run that)								%%%%%%%%%%
+)
+##########################	   ##########################                 #####################                 @@@@@@@@@@@@@@@@@
+
+															Linux Server
 
 Installing Docker:
 _________________________
@@ -48,6 +75,15 @@ Verify docker installation
 Use this command to check version of docker installed
 _____________________________________________________
 docker -v
+
+##############################################################################################
+##############################################################################################
+
+For practise pull the sample image from docker hub: docker pull psait/pankajsiracademy:latest
+
+###############################################################################################
+###############################################################################################
+
 
 Important Docker Commands
 _______________________________________________________
@@ -342,7 +378,17 @@ Step 2: Note (Install maven and git in linux VM first)
 2) Point to project root folder: cd <app-name> and run to generate jar: mvn clean package
 
 3) Create docker image and check that: 
--> docker build -t pankajsiracademy/<your-image-name> .
+-> docker build -t psait/pankajsiracademy:<tag> .
+(
+Here 
+-> psait is username
+-> repositoryname of docker hub
+-> <tag> can
+  a. prod-v1 or prod-v2v2 for production
+  b. dev-v1 for development environment
+  c. test-v1 for testing environment
+  d. staging-v1 for staging environment
+)
 -> docker images 
 
 4) run docker container: docker run -d -p 8080:8080 --name psa psait/your-app
@@ -364,12 +410,5 @@ Enter username: psait
 Enter password
 
 -> push docker image
-docker push <image-name>
-
-
-
-
-
-
-
+docker push psait/pankajsiracademy:<tag>
 
