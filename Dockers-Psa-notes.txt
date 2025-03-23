@@ -79,7 +79,9 @@ docker -v
 ##############################################################################################
 ##############################################################################################
 
-For practise pull the sample image from docker hub: docker pull psait/pankajsiracademy:latest
+For practise pull the sample image from docker hub repository of pankaj sir academy: docker pull psait/pankajsiracademy:latest
+
+For Practise pull docker official image: docker pull hello-world
 
 ###############################################################################################
 ###############################################################################################
