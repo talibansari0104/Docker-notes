@@ -358,7 +358,7 @@ ___________________________________________________________________________
 -> Spring Boot: framework which is used to develop enterprise based applications.
 -> Spring Boot applications will be packaged as a jar file for deployment. 
 -> To run the jar file we will use command :  java -jar <file-name.jar>
--> To run springboot application jar filewe will use tomcat server as "embedded server".
+-> To run springboot application jar file we will use tomcat server as "embedded server".
 -> By default spring boot application will run on port number 8080
 
 Step 1: Create Docker File
